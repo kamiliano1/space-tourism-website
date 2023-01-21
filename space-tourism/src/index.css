@@ -21,6 +21,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  font-weight: 400;
 }
 
 /* Remove list styles on ul, ol elements */
@@ -45,6 +46,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
+
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
@@ -123,11 +125,11 @@ body {
 
     --fs-900: 5rem;
     --fs-800: 3.5rem;
-    --fs-700: 1.5rem;
+    --fs-700: 1.75rem;
     --fs-600: 1rem;
     --fs-500: 1rem;
     --fs-400: 1rem;
-    --fs-300: .9375;
+    --fs-300: .9375rem;
     --fs-200: .875rem;
   }
 
@@ -159,6 +161,10 @@ body {
   display: flex;
   gap: var(--gap, 1rem);
 
+}
+
+.flex--column {
+  flex-direction: column;
 }
 
 .grid {
@@ -252,23 +258,31 @@ body {
 /*Components*/
 /************/
 
+.index-grey {
+  color: hsl(var(--color-light) / .25);
+  margin-right: .3em;
+}
+
 .indicators > * {
   cursor: pointer;
   padding: var(--underline-gap, 1.5rem) 0;
   border: 0;
 }
 
-@media(min-width:25rem) {
-  .underline-indicators > *:hover {
-    border-bottom: 2px solid  hsl(var(--color-light) / .5);
-  }
-  
-  .underline-indicators .active,
-  .underline-indicators [aria-selected="true"]  {
-    border-bottom: 2px solid  hsl(var(--color-light) / 1);
-  }
-
+.primary-header .underline-indicators .active, 
+.primary-header .underline-indicators [aria-selected="true"] {
+  border-bottom: none;
 }
+
+.underline-indicators > *:hover {
+  border-bottom: 2px solid  hsl(var(--color-light) / .5);
+}
+
+.underline-indicators .active,
+.underline-indicators [aria-selected="true"]  {
+  border-bottom: 2px solid  hsl(var(--color-light) / 1);
+}
+
 
 .underline-indicators > * {
   border-bottom: 2px solid  hsl(var(--color-light) / 0);
@@ -559,6 +573,50 @@ body {
   }
 }
 
+/* Destination */
 
+.destination {
+  margin-bottom: 2rem;
+}
 
+.grid--destination {
+  text-align: center;
+  grid-template-areas: 
+    "title"
+    "image"
+    "indicators"
+    "content";
+    
+}
+.grid--destination > img {
+  grid-area: image;
+  width: 60%;
+}
+.grid--destination > h1 {
+  grid-area: title;
+}
 
+.grid--destination > .tabs-indicators {
+  grid-area: indicators
+}
+
+.grid--destination > article {
+  grid-area: content;
+}
+
+.grid--destination .flex--column {
+  justify-content: center;
+  
+}
+.grid--destination .flex--column::before {
+  content: "";
+  border-top: 1px solid hsl(var(--color-dark) /.9);
+  margin-block: 1rem;
+}
+
+@media(min-width:25rem) {
+  .grid--destination .flex--column {
+    flex-direction: row;
+  }
+}
+  
