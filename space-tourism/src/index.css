@@ -111,6 +111,7 @@ body {
   /* Font Family */
 
   --ff-Barlow-Cond: 'Barlow Condensed', sans-serif;
+  --ff-Barlow: 'Barlow', sans-serif;
   --ff-Belle: 'Bellefair', serif;
 
 }
@@ -142,7 +143,7 @@ body {
     --fs-700: 3.5rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
-    --fs-400: 1rem;
+    --fs-400: 1.125rem;
   }
 }
 
@@ -163,7 +164,16 @@ body {
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
+  place-items: center;
   
+}
+
+@media(min-width:45rem) {
+  .grid {
+    grid-template-columns: 2rem min-content 1fr 2rem ;
+
+  }
+
 }
 
 .container {
@@ -176,6 +186,9 @@ body {
   margin-top: var(--flow-space, 1rem);
 }
 
+.d-block {
+  display: block;
+}
 
 /* ScreenReader  */
 
@@ -209,6 +222,7 @@ body {
 /* Fonts */
 
 .ff-barlow { font-family: var(--ff-Barlow-Cond) }
+.ff-barlow-reg { font-family: var(--ff-Barlow) }
 .ff-belle { font-family: var(--ff-Belle) }
 
 /* Typography */
@@ -226,6 +240,7 @@ body {
 /* Letter Spacing */
 
 .letter-spacing-475 { letter-spacing: 4.75px }
+.letter-spacing-3375 { letter-spacing: 3.375px }
 .letter-spacing-270 { letter-spacing: 2.70px }
 .letter-spacing-235 { letter-spacing: 2.35px }
 
@@ -263,18 +278,18 @@ body {
 
 /* Explore Button */
 .explore-button {
-  z-index: 1;
+  z-index: 2;
   position: relative;
   display: inline-grid;
   border-radius: 50%;
   aspect-ratio: 1;
   place-items: center;
-  padding: 2em;
+  padding: 1.5em;
   
 }
 
 .explore-button::after {
-  z-index: -1;
+  z-index: 3;
   position: absolute;
   content: "";
   width: 100%;
@@ -346,6 +361,7 @@ body {
 
 /* Navigation */
 
+
 .primary-header {
   justify-content: space-between;
 }
@@ -358,15 +374,11 @@ body {
   align-self: center;
 }
 
-
 .primary-navigation span {
   font-weight: bold;
   margin-right: .5em;
 }
 
-.primary-header {
-  margin-top: 2em;
-}
 
 nav .opened-navigation {
   transform: translateX(0);
@@ -374,7 +386,7 @@ nav .opened-navigation {
 @supports (backdrop-filter: blur(1.5rem)) {
   .primary-navigation {
     backdrop-filter: blur(1.5rem);
-    /* background-color: tomato; */
+    background-color: blueviolet;
   }
 }
 
@@ -390,6 +402,7 @@ nav .opened-navigation {
     --underline-gap: 1em;
     transform: translateX(100%);
     transition: transform 500ms ease-in-out;
+    z-index: 1000;
   }
   
   .nav-button {
@@ -399,20 +412,18 @@ nav .opened-navigation {
     padding: 1.3em;
     position: absolute;
     right: 1em;
-    z-index: 1000;
+    z-index: 1001;
   }
   .logo {
     padding: 1em 0;
-  }
-  .primary-header {
-    margin-top: 0em;
+    width: 40px;
   }
 
 }
 
 
 
-@media(min-width:25rem) {
+@media(max-width:45rem) {
 
   .primary-header {
     padding-right: 0;
@@ -422,9 +433,9 @@ nav .opened-navigation {
     display: none;
   }
 
-  .primary-navigation {
-    padding-inline: 2em;
-  }
+}
+.primary-navigation {
+  padding-inline: 2em;
 }
 
 @media(min-width:45rem) {
@@ -451,8 +462,103 @@ nav .opened-navigation {
     order:-1;
     align-self: center;
     width: 100%;
-    /* display: inline; */
     margin-right: -3em;
     z-index: 10000;
   }
 }
+
+/* 
+***************
+*** Layouts ***
+*************** 
+*/
+
+/* Home */
+
+.home {
+  
+  margin-top: 5em;
+  text-align: center;
+  --gap: 1em
+}
+
+.grid--home {
+  grid-template-areas: 
+    "title"
+    "content"
+    "button";
+  --flow-space: 0rem
+}
+.grid--home h1 {
+  grid-area: title;
+  line-height: 1.3;
+}
+
+.grid--home p {
+  grid-area: content;
+}
+
+body {
+  background-size: cover;
+  background-position: center center;
+  background-image: url(/assets/home/background-home-mobile.jpg);
+  background-repeat: no-repeat;
+}
+
+.grid--home > * {
+  font-weight: 400;
+
+}
+
+.grid--home .explore-button {
+  grid-area: button;
+  margin-top: clamp(0.1px, 7vh, 5rem);
+}
+.grid > p {
+  max-width: 55ch;
+  align-self: start;
+}
+
+@media(max-width:25rem) {
+  .home {
+    margin-top: 2em;
+  }
+
+  .grid--home {
+    --flow-space: 0vh;
+    place-items: center;
+  
+  }
+  .grid > p {
+    line-height: 1.6;
+    max-width: 35ch;
+  }
+}
+
+@media (min-width:45rem) {
+
+  .home {
+    margin-top: clamp(.1em, 20vw, 15rem);
+  }
+  .grid--home {
+    --gap: 0;
+    text-align: start;
+    grid-template-areas: 
+    ". title button ."
+    ". content button .";
+    place-items: center;
+    --flow-space: 2rem
+  }
+  .grid > p {
+    max-width: 100%;
+    line-height: 32px;
+  }
+  .explore-button {
+    align-self: end;
+    justify-self: end;
+  }
+}
+
+
+
+

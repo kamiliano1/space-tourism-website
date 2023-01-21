@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/crew" element={<Crew />}/>
         <Route exact path="/technology" element={<Technology />}/>
       </Routes>
-      {test}
+      {/* {test} */}
     </div>
   )
 }

@@ -42,9 +42,8 @@ export default function Navbar() {
                 </ul>
 
             </nav>
-                {/* <Link to="/destination" className="explore-button upper-case fs-600 ff-belle f-c-dark bg-c-white letter-spacing-270">
-                            Explore
-                </Link>
+                {
+                /* 
 
                 <div className="indicators underline-indicators tabs-indicators flex">
                     <button aria-selected="true" aria-controls="moon-tab" className="upper-case f-c-light ff-barlow ">Moon</button>
