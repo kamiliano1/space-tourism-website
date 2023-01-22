@@ -6,11 +6,11 @@ export default function Destination() {
             <div className="f-c-light grid grid--destination flow">
                 <img src={europaImg} alt="europa" />
                 <LineIndicator />
-                <h1 className="upper-case f-c-white fs-500"><span className="index-grey">01</span> Pick your destination</h1>
+                <h1 className="upper-case f-c-white fs-500 letter-spacing-270"><span className="index-grey">01</span> Pick your destination</h1>
                 <article className="flow">
                     <div>
                         <h2 className="upper-case fs-800 ff-belle">Europa</h2> 
-                        <p className="ff-barlow-reg fs-300 max-width-55ch"> The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.</p>
+                        <p className="ff-barlow-reg fs-300 max-width-45ch"> The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.</p>
                     </div>
                     <div className="flex flex--column flow">
                         <div> 
