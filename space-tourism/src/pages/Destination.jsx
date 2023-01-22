@@ -2,7 +2,7 @@ import LineIndicator from "../components/LineIndicator"
 import europaImg from "/assets/destination/image-europa.png"
 export default function Destination() {
     return (
-        <main className="destination container ff-barlow">
+        <main className="container ff-barlow">
             <div className="f-c-light grid grid--destination flow">
                 <img src={europaImg} alt="europa" />
                 <LineIndicator />
@@ -10,9 +10,9 @@ export default function Destination() {
                 <article className="flow">
                     <div>
                         <h2 className="upper-case fs-800 ff-belle">Europa</h2> 
-                        <p className="ff-barlow-reg fs-300"> The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.</p>
+                        <p className="ff-barlow-reg fs-300 max-width-55ch"> The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover's dream. With an icy surface, it's perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.</p>
                     </div>
-                    <div className="flex flex--column flow ">
+                    <div className="flex flex--column flow">
                         <div> 
                             <h3 className="upper-case letter-spacing-235 f-c-light fs-200">Avg. distance</h3>
                             <p className="upper-case ff-belle f-c-white fs-700">628 mil. km</p>
