@@ -42,22 +42,6 @@ export default function Navbar() {
                 </ul>
 
             </nav>
-                {
-                /* 
-
-                
-                <div className="indicators dots-indicators flex">
-                    <button aria-selected="true" aria-controls="moon-tab" className="upper-case f-c-light ff-barlow "><span class="sr-only">Moon</span></button>
-                    <button aria-selected="false" aria-controls="mars-tab" className="upper-case f-c-light ff-barlow "><span class="sr-only">Mars</span></button>
-                    <button aria-selected="false" aria-controls="europa-tab" className="upper-case f-c-light ff-barlow"  ><span class="sr-only">Europa</span></button>
-                </div>
-
-                <div className="indicators buttons-indicators grid">
-                    <button aria-selected="true" aria-controls="moon-tab" className="fs-600 bg-c-dark f-c-white ff-belle"><span class="sr-only">Moon</span>1</button>
-                    <button aria-selected="false" aria-controls="mars-tab" className="fs-600 bg-c-dark f-c-white ff-belle"><span class="sr-only">Mars</span>2</button>
-                    <button aria-selected="false" aria-controls="europa-tab" className="fs-600 bg-c-dark f-c-white ff-belle"  ><span class="sr-only">Europa</span>3</button>
-                </div> */}
- 
 
         </header>
     )

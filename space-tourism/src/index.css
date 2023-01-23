@@ -178,7 +178,7 @@ body {
 
 @media(min-width:56rem) {
   .grid {
-    grid-template-columns: 2rem 1fr 1fr 2rem ;
+    grid-template-columns: 2rem 1fr 1fr 2rem;
 
   }
 
@@ -342,7 +342,7 @@ body {
 .dots-indicators > * {
   border: none;
   background: hsl(var(--color-white) /.1);
-  padding: .5em;
+  padding: clamp(.625rem, 2vw , .9375rem);
   border-radius: 50%;
   --underline-gap: .3rem;
 }
@@ -760,7 +760,6 @@ nav .opened-navigation {
       "title title ."
       "indicators content image"
       "indicators content image";
-      /* --flow-space: 0; */
       --gap: 2rem;
   }
   .grid--technology article {
@@ -775,4 +774,86 @@ nav .opened-navigation {
     padding-inline: 2rem;
     max-width: 90rem;
   }
+}
+
+/* Crew */
+
+.grid--crew {
+  text-align: center;
+  margin-block: 1rem;
+  grid-template-areas: 
+  "title"
+  "image"
+  "indicators"
+  "content";
+}
+.grid--crew h2 span {
+  display: block;
+}
+
+.crew--underline {
+  grid-area: image;
+  border-bottom: 1px solid hsl(var(--color-light) / .3);
+}
+
+.grid--crew img {
+  width: 60%;
+  margin-inline: auto;
+}
+.grid--crew > h1 {
+  grid-area: title;
+}
+
+.grid--crew > .dots-indicators {
+  grid-area: indicators;
+}
+
+.grid--crew > article {
+  grid-area: content;
+  line-height: 2;
+}
+.grid--crew h2 {
+  color: hsl(var(--color-white) /0.4);
+}
+.grid--crew h2 span {
+  color: hsl(var(--color-white) / 1);
+}
+
+@media(min-width:35rem) {
+  .grid--crew > h1 {
+    justify-self: start;
+    /* padding-inline: 2rem; */
+  }
+}
+
+@media(min-width:56rem) { 
+  .grid--crew {
+    /* margin-top: clamp(2rem, 10vw, 10rem); */
+    text-align: start;
+    /* grid-template-columns: 100px 3fr 2fr; */
+    grid-template-areas: 
+      ". title image ."
+      ". content image ."
+      ". indicators image .";
+      --gap: 2rem;
+      justify-items: start;
+  }
+  .grid--crew img {
+    width: 100%;
+  }
+  .crew--underline {
+    align-self: end;
+    justify-self: end;
+    
+  }
+  .grid--crew > .dots-indicators {
+    justify-self: start;
+  }
+
+  .grid--crew article > h2 > span {
+    font-size: min(3.5rem, 4.2vw);
+    line-height: 1.4;
+  }
+  
+
 }
