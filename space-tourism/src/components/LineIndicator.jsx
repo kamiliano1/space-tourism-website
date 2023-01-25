@@ -4,7 +4,7 @@ export default function LineIndicator(props) {
                 onClick={props.toggle} 
                 aria-selected={props.isClicked}
                 aria-controls={`${props.name}-tab`}
-                className="upper-case f-c-light ff-barlow">{props.name}
+                className="upper-case f-c-light ff-barlow fs-100">{props.name}
             </button>
 
     )

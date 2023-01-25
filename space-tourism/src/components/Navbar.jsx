@@ -47,7 +47,7 @@ export default function Navbar() {
     const webLinks = pageInfo.map(({name, link, isClicked}, id)=>{
         return  (                 
             <li key={name} className={isClicked ? "active" : ""}>
-                <Link to={link}  className="upper-case fs-400 ff-barlow letter-spacing-270">
+                <Link to={link}  className="upper-case fs-100-nav ff-barlow letter-spacing-270">
                 <span aria-hidden="true">0{id}</span>{name}
                 </Link>
             </li>

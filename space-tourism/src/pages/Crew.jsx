@@ -36,7 +36,9 @@ export default function Crew() {
 
     return (
         <main className="container grid grid--crew flow">
-            <h1 className="upper-case f-c-white fs-500 letter-spacing-270 ff-barlow"><span className="index-grey">02</span> Meet your crew</h1>
+            <h1 className="upper-case f-c-white fs-400 letter-spacing-270 ff-barlow">
+                <span className="index-grey">02</span>Meet your crew
+            </h1>
             <div className="crew--underline">
                 <img src={images.png} alt={name} />
             </div>
@@ -44,8 +46,8 @@ export default function Crew() {
                 {indicators}
             </div>
             <article>
-                <h2 className="fs-600 upper-case ff-belle"> {role} <span className="fs-700">{name}</span></h2>
-                <p className="f-c-light ff-barlow-reg max-width-45ch">{bio}</p>
+                <h2 className="fs-500 upper-case ff-belle"> {role} <span className="fs-700">{name}</span></h2>
+                <p className="f-c-light ff-barlow-reg max-width-45ch fs-100">{bio}</p>
             </article>
         </main>
     )
