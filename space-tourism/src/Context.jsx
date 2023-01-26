@@ -4,7 +4,6 @@ import data from "./Data/data.json"
 
 const PageContext = createContext()
 
-
 function PageContextProvider({children}) {
 
     function prepareContent(pageSpecificContent) {
@@ -13,6 +12,9 @@ function PageContextProvider({children}) {
                 return id===0 ?{...prev, isClicked:true, id:id} : {...prev, isClicked:false, id:id}
             }) 
         })
+    }
+    function skipToContent(ref) {
+        ref.current.focus()
     }
 
     function updateContent(id, currentContent, pageSpecificContent, pageName) {
@@ -27,7 +29,7 @@ function PageContextProvider({children}) {
 
     const { destinations, crew, technology } = pageData
     return (
-        <PageContext.Provider value={{destinations, crew, technology, prepareContent, updateContent }}>
+        <PageContext.Provider value={{destinations, crew, technology, prepareContent, updateContent, skipToContent }}>
             {children}
         </PageContext.Provider>
     )

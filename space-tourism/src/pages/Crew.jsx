@@ -1,10 +1,13 @@
 import DotIndicator from "../components/DotIndicator"
 import { PageContext } from "../Context"
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext, useEffect, useRef } from "react"
+import SkipToContent from "../components/SkipToContent"
 
-export default function Crew() {
-    const { crew , prepareContent } = useContext(PageContext)
+export default function Crew(props) {
+    const { crew , prepareContent, skipToContent } = useContext(PageContext)
     const [currentContent, setCurrentContent] = useState({...crew[0], isClicked:true})
+
+    const focusRef = useRef(props.focusRef)
     
     const [crewContent, setCrewContent] = useState(crew)
 
@@ -22,14 +25,21 @@ export default function Crew() {
     }
 
     const indicators = crewContent.map((crew, id)=>{
-        return (
+        return ( id===0 ? 
             <DotIndicator
                 key={id}
-                // toggle={()=>updateContentt(id)} 
                 toggle={()=>updateContent(id)} 
                 isClicked={crew.isClicked}
                 name={crew.name}
+                skipToContent={props.focusRef}
             />
+            :
+            <DotIndicator
+            key={id}
+            toggle={()=>updateContent(id)} 
+            isClicked={crew.isClicked}
+            name={crew.name}
+        />
         )
     })
     const { name, images, role, bio } = currentContent
@@ -39,10 +49,10 @@ export default function Crew() {
             <h1 className="upper-case f-c-white fs-400 letter-spacing-270 ff-barlow">
                 <span className="index-grey">02</span>Meet your crew
             </h1>
-            <div className="crew--underline">
+            <div className="crew--underline" ref={focusRef}>
                 <img src={images.png} alt={name} />
             </div>
-            <div className="indicators dots-indicators flex">
+            <div className="indicators dots-indicators flex" >
                 {indicators}
             </div>
             <article>

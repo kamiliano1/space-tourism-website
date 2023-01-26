@@ -1,7 +1,8 @@
 import ButtonIndicator from "../components/ButtonsIndicator"
 import { PageContext } from "../Context"
-import { useState, useEffect, useContext } from "react"
-export default function Technology() {
+import SkipToContent from "../components/SkipToContent"
+import { useState, useEffect, useContext, useRef } from "react"
+export default function Technology(props) {
 
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
 
@@ -12,9 +13,10 @@ export default function Technology() {
     },[])
 
 
-    const { technology, updateContent, prepareContent } = useContext(PageContext)
+    const { technology, updateContent, prepareContent, skipToContent } = useContext(PageContext)
     const [currentContent, setCurrentContent] = useState({...technology[0], isClicked:true})
     
+
     const [technologyContent, setTechnologyContent] = useState(technology)
 
     useEffect(()=>{
@@ -22,7 +24,16 @@ export default function Technology() {
     },[])
 
     const indicators = technologyContent.map((destination, id)=>{
-        return (
+        return (id=== 0 ?
+            <ButtonIndicator
+                key={id}
+                toggle={()=>updateContent(id, setCurrentContent, setTechnologyContent, technology)} 
+                isClicked={destination.isClicked}
+                name={destination.name}
+                number={id}
+                skipToContent={props.focusRef}
+            />
+            :
             <ButtonIndicator
                 key={id}
                 toggle={()=>updateContent(id, setCurrentContent, setTechnologyContent, technology)} 

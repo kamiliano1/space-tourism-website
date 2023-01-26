@@ -201,6 +201,23 @@ body {
   max-width: 55ch;
   align-self: start;
 }
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  left: 0;
+  top:0;
+  background-color: hsl(var(--color-white) );
+  color: hsl(var(--color-dark));
+  padding: .3rem;
+  transition: transform 250ms ease-in;
+  transform: translateY(-100%);
+  cursor: pointer;
+  text-decoration: underline;
+
+}
+.skip-to-content:focus {
+  transform: translateY(0);
+}
 
 @media(min-width:35rem) {
   .grid > h1 {
@@ -359,7 +376,8 @@ border-bottom: 2px solid  hsl(var(--color-light) / 1);
     transform 750ms ease-in-out;
 }
 
-.explore-button:hover::after {
+.explore-button:hover::after,
+.explore-button:focus::after {
   opacity: .15;
   transform: scale(1.6);
 }
@@ -635,10 +653,6 @@ nav .opened-navigation {
     --flow-space: 0vh;
     place-items: center;
   
-  }
-  .grid > p {
-    line-height: 1.6;
-    max-width: 35ch;
   }
 
 }
