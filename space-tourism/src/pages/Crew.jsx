@@ -50,7 +50,10 @@ export default function Crew(props) {
                 <span className="index-grey">02</span>Meet your crew
             </h1>
             <div className="crew--underline" ref={focusRef}>
-                <img src={images.png} alt={name} />
+                <picture>
+                    <source srcSet={images.webp} type="image/webp" />
+                    <img src={images.png} alt={name} />
+                </picture>
             </div>
             <div className="indicators dots-indicators flex" >
                 {indicators}
